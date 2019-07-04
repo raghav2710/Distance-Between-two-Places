@@ -7,15 +7,19 @@ geoLocator = Nominatim(user_agent="my-application")
 startPoint = input("Choose starting point: ")
 endPoint = input("Choose ending point: ")
 
-# Latitude and Longitude of starting point
-locStart = geoLocator.geocode(startPoint)
-print("latitude is :", locStart.latitude, "\nlongitude is:", locStart.longitude)
+try:
+    # Latitude and Longitude of starting point
+    locStart = geoLocator.geocode(startPoint)
+    print("latitude is :", locStart.latitude, "\nlongitude is:", locStart.longitude)
 
-# Latitude and Longitude of ending point
-locEnd = geoLocator.geocode(endPoint)
-print("latitude is :", locEnd.latitude, "\nlongitude is:", locEnd.longitude)
+    # Latitude and Longitude of ending point
+    locEnd = geoLocator.geocode(endPoint)
+    print("latitude is :", locEnd.latitude, "\nlongitude is:", locEnd.longitude)
 
-# Calculating distance between two places using latitudes and longitudes in kilometers
-coOrd_1 = (locStart.latitude, locStart.longitude)
-coOrd_2 = (locEnd.latitude, locEnd.longitude)
-print("Distance between them is:- ", geopy.distance.geodesic(coOrd_1, coOrd_2).km, "km")
+    # Calculating distance between two places using latitudes and longitudes in kilometers
+    coOrd_1 = (locStart.latitude, locStart.longitude)
+    coOrd_2 = (locEnd.latitude, locEnd.longitude)
+    print("Distance between them is:- ", geopy.distance.geodesic(coOrd_1, coOrd_2).km, "km")
+
+except AttributeError as err:
+    print("Try Entering a Valid Place, City, State or Country")
