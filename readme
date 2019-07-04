@@ -1,0 +1,9 @@
+DistanceBetweenTwoPlaces.pyc - This python script will ask user to enter two places and then show distance between them in kilometers using haversine distance method
+
+Prerequisites:
+Module needs to be install - geopy
+ 1. Open terminal
+ 2. Write- pip3 install geopy
+
+
+(This code is perfectly working in Python 3.7)
